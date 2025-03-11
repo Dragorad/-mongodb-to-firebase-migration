@@ -10,11 +10,24 @@
     "type": "git",
     "url": "git+https://github.com/Dragorad/-mongodb-to-firebase-migration.git"
   },
-  "keywords": ["mongodb","Atlas", "Realm" ,"migration", "firebase"],
+  "keywords": [
+    "mongodb",
+    "Atlas",
+    "Realm",
+    "migration",
+    "firebase"
+  ],
   "author": "Drag Simeonov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Dragorad/-mongodb-to-firebase-migration/issues"
   },
-  "homepage": "https://github.com/Dragorad/-mongodb-to-firebase-migration#readme"
+  "homepage": "https://github.com/Dragorad/-mongodb-to-firebase-migration#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "firebase": "^11.4.0"
+  },
+  "devDependencies": {
+    "firebase-tools": "^13.33.0"
+  }
 }

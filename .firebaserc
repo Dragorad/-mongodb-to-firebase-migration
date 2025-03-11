@@ -1,0 +1,5 @@
+{
+  "projects": {
+    "default": "mongo-db-to-firebase-migration"
+  }
+}
