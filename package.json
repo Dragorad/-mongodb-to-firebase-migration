@@ -1,0 +1,20 @@
+{
+  "name": "-mongodb-to-firebase-migration",
+  "version": "0.1.0",
+  "description": "Migrating base and cloud functions from MongoDB Atlas to Firebase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dragorad/-mongodb-to-firebase-migration.git"
+  },
+  "keywords": ["mongodb","Atlas", "Realm" ,"migration", "firebase"],
+  "author": "Drag Simeonov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dragorad/-mongodb-to-firebase-migration/issues"
+  },
+  "homepage": "https://github.com/Dragorad/-mongodb-to-firebase-migration#readme"
+}
