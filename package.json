@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "migrate": "node migrate.js"
+    "migrate": "node migrate.js",
+    "migrate:continue": "node migrate.js --skip",
+    "migrate:from": "node migrate.js --skip"
   },
   "repository": {
     "type": "git",
