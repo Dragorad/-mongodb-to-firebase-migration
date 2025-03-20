@@ -63,19 +63,38 @@ async function migrateData(skipCount = 0) {
         const batch = writeBatch(db);
         const titleRecordsRef = collection(db, 'title_records');
         const documentIds = [];
-
+        
         titleRecords.forEach(record => {
+            // Deep clone and transform the record to handle nested ObjectIds
+            const transformedRecord = JSON.parse(JSON.stringify(record, (key, value) => {
+                // Convert any ObjectId to string
+                if (value && value._bsontype === "ObjectId") {
+                    return value.toString();
+                }
+                return value;
+            }));
+        
             const newId = record._id.toString();
-            const transformedRecord = {
-                ...record,
-                _id: newId,
-                migratedAt: new Date()
-            };
-
+            transformedRecord._id = newId;
+            transformedRecord.migratedAt = new Date();
+        
             documentIds.push(transformedRecord._id);
             const docRef = doc(titleRecordsRef, transformedRecord._id);
             batch.set(docRef, transformedRecord);
         });
+        
+        // titleRecords.forEach(record => {
+        //     const newId = record._id.toString();
+        //     const transformedRecord = {
+        //         ...record,
+        //         _id: newId,
+        //         migratedAt: new Date()
+        //     };
+
+        //     documentIds.push(transformedRecord._id);
+        //     const docRef = doc(titleRecordsRef, transformedRecord._id);
+        //     batch.set(docRef, transformedRecord);
+        // });
 
         await batch.commit();
         console.log(`Successfully started writting of ${titleRecords.length} documents to Firestore`);
